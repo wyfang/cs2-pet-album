@@ -6,14 +6,16 @@ Generate copyable library filenames for custom JPG images using the publicly ext
 
 ## Features
 
-- Choose a growth stage, album requirement, and any available map, pose, or action. The default is a chick close-up.
+- Use album presets and free editing on the same page. The 14 album presets default to a chick close-up.
+- Set growth, pose, scene, filter, activity, headwear, aspect ratio, and zoom: all eight tag categories recorded in library filenames.
 - Paste an existing library filename to preserve its timestamp and unrelated tags, changing only the selected requirement and explicitly edited fields.
+- Select “None” for activity or headwear to remove its tag. `v0` means panic, and `e0` means a helmet.
 - Choose from seven aspect ratios, review changed tags, copy the result, and generate a new timestamp.
 - Validate filenames and tag values strictly. A `book_` filename prompts the user to move the photo back to the library; invalid input produces no result.
 
 ## Usage
 
-Double-click `index.html` to run it offline in a browser. The page uses native HTML, CSS, and JavaScript, with all styles and logic in one file. No backend, image upload, or dependency installation is needed.
+Double-click `index.html` to run it offline in a browser. The dark interface adapts to mobile screens, with expandable usage instructions. Native HTML, CSS, and JavaScript keep all styles and logic in one file. No backend, image upload, or dependency installation is needed.
 
 Development and builds require Node.js 22 or later:
 
@@ -29,7 +31,9 @@ npm run sync:site
 
 Exit the game and make a backup before placing an actual JPG image, renamed to the generated filename, in the pet's `library` folder. Reopen the game and drag it into the album. Tags affect album recognition; they do not alter the image or the chicken's actual age. Use a different timestamp for every image. Keep backups outside the pet directory and avoid duplicate timestamps in `library/book`.
 
-All filename processing happens locally in the browser. Images are neither read nor uploaded. Fire, electrocution, and C4 incident report achievement pages are excluded from ordinary photo naming options.
+Album presets constrain the tags required by their page; free editing does not guarantee album eligibility. Backdrop colors, stickers, effects, and color adjustments have no separate filename tags and cannot be added by renaming an image.
+
+All filename processing happens locally in the browser. Images are neither read nor uploaded. Fire, electrocution, and C4 incident report achievement pages are excluded from ordinary photo presets.
 
 Rules reference SteamTracking's publicly extracted [album page script](https://raw.githubusercontent.com/SteamTracking/GameTracking-CS2/master/game/csgo/pak01_dir/panorama/scripts/popups/pet_book_pages.js) and [photo tag script](https://raw.githubusercontent.com/SteamTracking/GameTracking-CS2/master/game/csgo/pak01_dir/panorama/scripts/popups/pet_photo_tag.js). Filenames follow the current public scripts. Adding photos for a different growth stage has not been tested in-game, and future versions may change the rules.
 
